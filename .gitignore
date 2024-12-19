@@ -1,0 +1,47 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Dataset files (if they're too large or sensitive)
+DATASET/*.csv
+DATASET/*.xlsx
+*.csv
+*.xlsx
+
+# PDF files (if they contain sensitive information)
+*.pdf
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Output files
+Preprocessed_Data
+*.html
+
+# Logs
+*.log
+
+# Local environment variables
+.env

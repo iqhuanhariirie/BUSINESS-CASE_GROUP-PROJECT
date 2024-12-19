@@ -1,0 +1,13 @@
+numpy
+matplotlib
+pandas
+cvxpy
+seaborn
+nltk
+contractions
+scikit-learn
+tensorflow
+wordcloud
+plotly
+textblob
+imblearn
