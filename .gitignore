@@ -22,6 +22,7 @@ DATASET/*.csv
 DATASET/*.xlsx
 *.csv
 *.xlsx
+/model
 
 # PDF files (if they contain sensitive information)
 *.pdf
