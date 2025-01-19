@@ -1,8 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --tiktok-black: #010101;
+    --tiktok-red: #FE2C55;
+    --tiktok-blue: #25F4EE;
+    --tiktok-white: #FFFFFF;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background: linear-gradient(45deg, var(--tiktok-blue) 0%, var(--tiktok-red) 100%);
+    min-height: 100vh;
 }
 
 .container {
@@ -13,83 +27,242 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--tiktok-white);
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
 }
 
 .form-container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
 }
 
 textarea {
     width: 100%;
     height: 150px;
-    padding: 12px;
+    padding: 15px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 2px solid #eee;
+    border-radius: 12px;
     resize: vertical;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--tiktok-blue);
 }
 
 button {
-    background-color: #4CAF50;
+    background: linear-gradient(45deg, var(--tiktok-blue), var(--tiktok-red));
     color: white;
-    padding: 12px 20px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 4px;
+    border-radius: 12px;
     cursor: pointer;
     width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    transform: translateY(-2px);
 }
 
 .result-container {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.sentiment-result {
+    text-align: center;
     padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.positive {
-    color: #4CAF50;
-    font-weight: bold;
+.emoji {
+    font-size: 64px;
+    margin: 20px 0;
+    animation: bounce 1s ease;
 }
 
-.negative {
-    color: #f44336;
-    font-weight: bold;
+.emoji-positive {
+    animation: bounce-positive 1s ease;
+}
+
+.emoji-negative {
+    animation: bounce-negative 1s ease;
+}
+
+.emoji-neutral {
+    animation: bounce-neutral 1s ease;
+}
+
+@keyframes bounce {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounce-positive {
+    0% { transform: scale(0) rotate(-45deg); }
+    50% { transform: scale(1.2) rotate(15deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes bounce-negative {
+    0% { transform: scale(0) rotate(45deg); }
+    50% { transform: scale(1.2) rotate(-15deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes bounce-neutral {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
 .confidence {
     color: #666;
-    font-size: 0.9em;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.confidence-bar {
+    width: 100%;
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.confidence-fill {
+    height: 100%;
+    background: linear-gradient(45deg, var(--tiktok-blue), var(--tiktok-red));
+    transition: width 0.5s ease;
 }
 
 .back-button {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: #666;
+    display: inline-block;
+    background: var(--tiktok-white);
+    color: var(--tiktok-black);
+    padding: 12px 30px;
+    border-radius: 12px;
     text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
 }
 
 .back-button:hover {
-    color: #333;
-}
-.error-container {
-    background: #fff3f3;
-    border: 1px solid #ffa7a7;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px 0;
+    transform: translateY(-2px);
 }
 
-.error-message {
-    color: #d32f2f;
-    font-weight: bold;
+.original-text {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.logo-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 30px;
+}
+
+.tiktok-logo {
+    position: relative;
+    z-index: 2;
+}
+
+.tiktok-logo path {
+    fill: var(--tiktok-white);
+}
+
+.logo-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--tiktok-blue), var(--tiktok-red));
+    border-radius: 12px;
+    animation: glitch 2s infinite;
+    z-index: 1;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* Add hover effect */
+.logo-container:hover .logo-animation {
+    animation: glitch 0.5s infinite;
+}
+
+/* Adjust existing styles */
+h1 {
+    text-align: center;
+    color: var(--tiktok-white);
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px; 
+}
+
+.logo-container::before,
+.logo-container::after {
+    content: '♪';
+    position: absolute;
+    color: var(--tiktok-white);
+    font-size: 24px;
+    animation: float 2s infinite ease-in-out;
+}
+
+.logo-container::before {
+    left: -30px;
+    top: 0;
+    animation-delay: 0.5s;
+}
+
+.logo-container::after {
+    right: -30px;
+    top: 0;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
