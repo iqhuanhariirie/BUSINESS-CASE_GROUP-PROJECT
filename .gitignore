@@ -20,8 +20,7 @@ build/
 # Dataset files (if they're too large or sensitive)
 DATASET/*.csv
 DATASET/*.xlsx
-*.csv
-*.xlsx
+
 /model
 
 # PDF files (if they contain sensitive information)
