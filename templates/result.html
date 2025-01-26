@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Analysis Result</h1>
+        <div class="result-container">
+            <div class="original-text">
+                <h3>Analyzed Text:</h3>
+                <p>{{ result.text }}</p>
+            </div>
+            <div class="sentiment-result">
+                <div class="emoji">
+                    {% if result.sentiment == 'Positive' %}
+                        😊
+                    {% else %}
+                        😔
+                    {% endif %}
+                </div>
+                <p class="{{ result.sentiment.lower() }}">{{ result.sentiment }} Sentiment</p>
+                <p class="confidence">Confidence Score: {{ result.confidence }}</p>
+                <div class="confidence-bar">
+                    <div class="confidence-fill" style="width: {{ result.confidence }}"></div>
+                </div>
+            </div>
+        </div>
+        <center>
+            <a href="{{ url_for('home') }}" class="back-button">Analyze Another Text ✨</a>
+        </center>
+    </div>
+</body>
+</html>

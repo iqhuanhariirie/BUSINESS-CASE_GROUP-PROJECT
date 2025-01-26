@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Sentiment Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>✨ TikTok Sentiment Analyzer ✨</h1>
+        <div class="logo-container">
+            <svg class="tiktok-logo" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M34.9687 0H26.9725V34.1406C26.9725 38.3594 23.6662 41.7969 19.5787 41.7969C15.4912 41.7969 12.185 38.3594 12.185 34.1406C12.185 29.9219 15.4912 26.4844 19.5787 26.4844V18.3594C11.0537 18.3594 4.18872 25.4688 4.18872 34.1406C4.18872 42.8125 11.0537 49.9219 19.5787 49.9219C28.1037 49.9219 34.9687 42.8125 34.9687 34.1406V16.7969C38.1537 19.375 42.0537 20.8594 46.185 20.8594V12.7344C39.9062 12.7344 34.9687 7.67188 34.9687 0Z" fill="black"/>
+            </svg>
+            <div class="logo-animation"></div>
+        </div>
+        <div class="form-container">
+            <form action="{{ url_for('predict') }}" method="post">
+                <textarea name="text" placeholder="Enter your text here to analyze its sentiment... 📝" required></textarea>
+                <button type="submit">Analyze Sentiment 🔍</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
