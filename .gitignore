@@ -21,7 +21,6 @@ build/
 DATASET/*.csv
 DATASET/*.xlsx
 
-/model
 
 # PDF files (if they contain sensitive information)
 *.pdf
